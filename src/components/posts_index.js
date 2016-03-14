@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions/index';
 
 class PostsIndex extends Component {
   componentWillMount(){
     // only called once
-    console.log("fetch data here");
+    this.props.fetchPosts();
   }
 
   render() {
@@ -13,4 +15,4 @@ class PostsIndex extends Component {
   }
 }
 
-export default PostsIndex;
+export default connect(null, { fetchPosts })(PostsIndex);
