@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { createPost } from '../actions/index';
-
+import {Link} from 'react-router';
 class CreatePost extends Component {
 
 
@@ -19,14 +19,14 @@ class CreatePost extends Component {
                     </div>
                 </div>
                 <div className={`form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`}>
-                <label>Categories</label>
+                    <label>Categories</label>
                     <input {...categories} type="text" className="form-control"/>
                     <div className="text-help">
                         {categories.touched ? categories.error : ''}
                     </div>
                 </div>
                 <div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
-                <label>Content</label>
+                    <label>Content</label>
                     <textarea {...content} className="form-control"/>
                     <div className="text-help">
                         {content.touched ? content.error : ''}
@@ -34,6 +34,7 @@ class CreatePost extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>
         );
     }
